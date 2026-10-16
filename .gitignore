@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Ortam değişkenleri (şifreler burada olur, GitHub'a gitmez)
+.env
+
+# Editör / işletim sistemi
+.idea/
+.DS_Store
+Thumbs.db
