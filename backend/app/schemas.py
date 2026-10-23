@@ -10,6 +10,20 @@ class UserCreate(BaseModel):
     password: str = Field(min_length=8, max_length=128)
 
 
+class LoginRequest(BaseModel):
+    """Giriş yaparken telefondan gelen veri."""
+
+    email: EmailStr
+    password: str
+
+
+class Token(BaseModel):
+    """Başarılı girişte telefona verilen giriş kartı."""
+
+    access_token: str
+    token_type: str = "bearer"
+
+
 class UserRead(BaseModel):
     """Kullanıcı hakkında telefona geri gönderilen veri. Şifre burada yok."""
 
