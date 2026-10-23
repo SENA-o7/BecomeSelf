@@ -34,6 +34,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements-dev.txt
 copy .env.example .env
+alembic upgrade head
 ```
 
 ## Testler
@@ -49,3 +50,15 @@ pytest -v
 docker compose down        # kapatır, veriler kalır
 docker compose down -v     # kapatır ve tüm verileri siler
 ```
+
+## API adresleri
+
+| Metot | Adres | Ne yapar | Giriş gerekli mi? |
+|---|---|---|---|
+| GET | `/health` | Sunucu ayakta mı? | Hayır |
+| GET | `/health/db` | Veritabanına ulaşılıyor mu? | Hayır |
+| POST | `/auth/register` | Yeni kullanıcı kaydı | Hayır |
+| POST | `/auth/login` | Giriş, token verir | Hayır |
+| GET | `/me` | Giriş yapmış kullanıcının bilgileri | Evet (Bearer token) |
+
+Ayrıntılar ve deneme için: http://127.0.0.1:8000/docs
